@@ -43,7 +43,7 @@ func (b *behPardakht) sendRequest(method, url string, soapRequest soap.SOAPReque
 	}
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("failed to pay with status %d", response.StatusCode)
+		return nil, fmt.Errorf("something went wrong with status code: %d", response.StatusCode)
 	}
 	responseBody, err := io.ReadAll(response.Body)
 	if err != nil {
